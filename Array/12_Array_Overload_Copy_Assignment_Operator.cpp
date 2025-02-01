@@ -131,11 +131,16 @@ Array::Array(const Array &arr)
 
 Array &Array::operator=(const Array &arr)
 {
-    this->capacity = arr.capacity;
-    this->lastIndex = arr.lastIndex;
-    ptr = new int[capacity];
-    for (int i = 0; i <= arr.lastIndex; i++)
-        ptr[i] = arr.ptr[i];
+    if (this != &arr) // shouldn't be the same array
+    {
+        if (ptr != nullptr) // release previous memory location
+            delete[] ptr;
+        this->capacity = arr.capacity;
+        this->lastIndex = arr.lastIndex;
+        ptr = new int[capacity];
+        for (int i = 0; i <= arr.lastIndex; i++)
+            ptr[i] = arr.ptr[i];
+    }
     return *this;
 }
 
