@@ -11,9 +11,11 @@ private:
     int lastIndex;
     int *ptr;
 
+protected:
+    void halfArray();
+
 public:
     DynArray(int);
-    void halfArray();
 };
 
 DynArray::DynArray(int size) : capacity(size)
