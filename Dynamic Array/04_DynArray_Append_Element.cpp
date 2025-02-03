@@ -68,7 +68,7 @@ void DynArray::append(int data)
 {
     if (isFull())
         dynArray();
-    ptr[lastIndex + 1] = data;
+    ptr[++lastIndex] = data;
 }
 int main()
 {
