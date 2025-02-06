@@ -11,7 +11,8 @@ class node
 public:
     int data;
     node *next;
-    node() : data(0), next(NULL) {}
+    node *prev;
+    node() : data(0), next(NULL), prev(NULL) {}
 };
 class DLL
 {
@@ -20,6 +21,7 @@ private:
 
 public:
     DLL() : start(NULL) {}
+    
 };
 int main()
 {
