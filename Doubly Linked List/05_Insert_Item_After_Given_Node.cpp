@@ -1,0 +1,105 @@
+// In question 1, define a method to insert a data into the list after the specified node of the list.
+
+#include <iostream>
+using namespace std;
+class node
+{
+public:
+    int data;
+    node *next;
+    node *prev;
+    node() : data(0), next(NULL), prev(NULL) {}
+};
+class DLL
+{
+private:
+    node *start;
+
+public:
+    DLL() : start(NULL) {}
+    void insertAtStart(int);
+    void insertAtEnd(int);
+    void insertAfter(node *, int);
+    node *search(int);
+    void display();
+};
+
+void DLL::insertAfter(node *insert, int data)
+{
+    if (insert)
+    {
+        node *newNode = new node;
+        newNode->data = data;
+        newNode->prev = insert;
+        newNode->next = insert->next;
+        if (insert->next != NULL)
+            insert->next->prev = newNode;
+        insert->next = newNode;
+    }
+}
+
+void DLL::insertAtStart(int data)
+{
+    node *newNode = new node;
+    newNode->data = data;
+    newNode->next = start;
+    newNode->prev = NULL;
+    if (start)
+        start->prev = newNode;
+    start = newNode;
+}
+
+void DLL::insertAtEnd(int data)
+{
+    node *newNode = new node;
+    newNode->data = data;
+    newNode->next = NULL;
+    node *temp = start;
+    if (start == NULL)
+    {
+        newNode->prev = NULL;
+        start = newNode;
+    }
+    else
+    {
+        while (temp->next != NULL)
+            temp = temp->next;
+        newNode->prev = temp;
+        temp->next = newNode;
+    }
+}
+
+void DLL::display()
+{
+    node *temp = start;
+    while (temp != NULL)
+    {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+}
+
+node *DLL::search(int data)
+{
+    node *temp = start;
+    while (temp != NULL)
+    {
+        if (temp->data == data)
+            return temp;
+        temp = temp->next;
+    }
+    return NULL;
+}
+
+int main()
+{
+    DLL D;
+    D.insertAtStart(4);
+    D.insertAtStart(3);
+    D.insertAtStart(2);
+    D.insertAtStart(1);
+    D.insertAfter(D.search(4), 5);
+    D.display();
+
+    return 0;
+}
