@@ -30,6 +30,8 @@ void DLL::insertAtStart(int data)
     newNode->data = data;
     newNode->next = start;
     newNode->prev = NULL;
+    if (start)
+        start->prev = newNode;
     start = newNode;
 }
 
