@@ -11,8 +11,10 @@ private:
     int *ptr;
 
 public:
-    Stack(int capacity) : capacity(capacity), ptr(NULL) {}
-    
+    Stack(int capacity) : capacity(capacity), top(-1)
+    {
+        ptr = new int[this->capacity];
+    }
 };
 
 int main()
