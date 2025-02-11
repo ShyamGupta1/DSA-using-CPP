@@ -175,7 +175,7 @@ void reverse(Stack &s)
 void minValueTracking()
 {
     int size, data;
-    cout << "Enter Size of the Stack";
+    cout << "Enter Size of the Stack: ";
     cin >> size;
     Stack S(size), min(size);
 
@@ -183,24 +183,23 @@ void minValueTracking()
     {
         cout << "Enter Element " << i + 1 << ": ";
         cin >> data;
-        if (S.isEmpty())
-        {
-            S.push(data);
+        S.push(data);
+        if (min.isEmpty())
             min.push(data);
-        }
         else
         {
             if (min.peek() > data)
                 min.push(data);
             else
                 min.push(min.peek());
-            S.push(data);
         }
     }
     for (int i = 0; i < size; i++)
+    {
         cout << "Min Value: " << min.peek() << endl;
-    S.pop();
-    min.pop();
+        S.pop();
+        min.pop();
+    }
 }
 
 int main()
