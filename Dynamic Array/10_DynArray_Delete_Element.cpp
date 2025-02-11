@@ -112,7 +112,7 @@ void DynArray::del(int index)
     for (int i = index; i < lastIndex; i++)
         ptr[i] = ptr[i + 1];
     lastIndex--;
-    if (2 * count() <= capacity && lastIndex > 1)
+    if (2 * (lastIndex + 1) <= capacity && capacity > 1)
         halfArray();
 }
 int DynArray::count()
