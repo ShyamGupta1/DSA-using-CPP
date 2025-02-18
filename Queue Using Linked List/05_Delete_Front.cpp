@@ -1,7 +1,5 @@
 // In question 1, define a method to delete the front element of the queue.
 
-// In question 1, define a method to view front element in the queue.
-
 #include <iostream>
 using namespace std;
 
