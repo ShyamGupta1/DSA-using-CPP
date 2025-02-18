@@ -21,7 +21,7 @@ public:
     int getFront();
 };
 
-int Queue::getRear()
+int Queue::getFront()
 {
     if (front == NULL)
         throw 1;
