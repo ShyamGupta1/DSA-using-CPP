@@ -47,7 +47,7 @@ void Queue::deleteFront()
     }
 }
 
-int Queue::getRear()
+int Queue::getFront()
 {
     if (front == NULL)
         throw 1;
