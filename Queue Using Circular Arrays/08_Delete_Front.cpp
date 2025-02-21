@@ -84,7 +84,7 @@ void Queue::insertRear(int data)
         ptr[rear] = data;
     }
 
-    else if (rear != capacity - 1)
+    else if (rear == capacity - 1)
     {
         rear = 0;
         ptr[rear] = data;
