@@ -37,7 +37,7 @@ void Queue::insertRear(int data)
         ptr[rear] = data;
     }
     // Special Case
-    else if (rear != capacity - 1) // No need to check for front > 0 already done in overflow step we can also write (rear != capacity - 1 && front > 0)
+    else if (rear == capacity - 1) // No need to check for front > 0 already done in overflow step we can also write (rear != capacity - 1 && front > 0)
     {
         rear = 0;
         ptr[rear] = data;
