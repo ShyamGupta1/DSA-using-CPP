@@ -32,10 +32,10 @@ void GraphMatrix::createGraph(int vno, int eno)
 
     for (int k = 1; k <= e_count; k++)
     {
-        cout << "\nEnter node numbers connecting edge:";
+        cout << "Enter node numbers connecting edge " << k << ": ";
         cin >> u >> v;
-        adj[u][v] = 1;
-        adj[v][u] = 1;
+        adj[u - 1][v - 1] = 1;
+        adj[v - 1][u - 1] = 1;
     }
 }
 
