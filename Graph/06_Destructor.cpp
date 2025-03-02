@@ -1,7 +1,5 @@
 // In question 1, define a destructor to deallocates memory.
 
-// In question 1, define a method to check if a given node is isolated node.
-
 #include <iostream>
 using namespace std;
 
